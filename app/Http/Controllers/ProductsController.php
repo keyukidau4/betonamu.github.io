@@ -35,7 +35,7 @@ class ProductsController extends Controller
 
         $cart = session()->get('cart');
 
-        // カートが空の場合、これが最初の製品
+        // if cart is empty then this the first product
         if (!$cart) {
 
             $cart = [
