@@ -35,7 +35,7 @@ class ProductsController extends Controller
 
         $cart = session()->get('cart');
 
-        // if cart is empty then this the first product
+        // カートが空の場合、これが最初の製品
         if (!$cart) {
 
             $cart = [
@@ -52,7 +52,7 @@ class ProductsController extends Controller
             return redirect()->back()->with('success', 'Product added to cart successfully!');
         }
 
-        // if cart not empty then check if this product exist then increment quantity
+        // カートが空でない場合は、この製品が存在するかどうかを確認してから、数量を増やします
         if (isset($cart[$id])) {
 
             $cart[$id]['quantity']++;
@@ -62,7 +62,7 @@ class ProductsController extends Controller
             return redirect()->back()->with('success', 'Product added to cart successfully!');
         }
 
-        // if item not exist in cart then add to cart with quantity = 1
+        // アイテムがカートに存在しない場合は、数量= 1でカートに追加します
         $cart[$id] = [
             "name" => $product->name,
             "quantity" => 1,

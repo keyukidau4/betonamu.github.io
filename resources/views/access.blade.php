@@ -3,5 +3,5 @@
 @section('title', 'Products')
 
 @section('content')
-    ありがとうございました。
+    <h1>ありがとうございました。</h1>
 @endsection
