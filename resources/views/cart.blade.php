@@ -7,10 +7,10 @@
     <table id="cart" class="table table-hover table-condensed">
         <thead>
             <tr>
-                <th style="width:50%">Product</th>
-                <th style="width:10%">Price</th>
-                <th style="width:8%">Quantity</th>
-                <th style="width:22%" class="text-center">Subtotal</th>
+                <th style="width:50%">プロダクト</th>
+                <th style="width:10%">価格</th>
+                <th style="width:8%">数量</th>
+                <th style="width:22%" class="text-center">合計金額</th>
                 <th style="width:10%"></th>
             </tr>
         </thead>
@@ -51,15 +51,13 @@
         </tbody>
         <tfoot>
             <tr class="visible-xs">
-                <td class="text-center"><strong>Total {{ $total }}</strong></td>
+                <td class="text-center"><strong>合計 {{ $total }}</strong></td>
             </tr>
             <tr>
-                <td><a href="{{ url('/') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue
-                        Shopping</a></td>
+                <td><a href="{{ url('/') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> ショッピング継続</a></td>
                 <td colspan="2" class="hidden-xs"></td>
-                <td class='row'><a href="{{ url('/access') }}" ><i class="fa fa-angle-left"></i>
-                    Access</a></td>
-                <td class="hidden-xs text-center"><strong>Total ￥{{ $total }}</strong></td>
+                <td class='row'><a href="{{ url('/access') }}" ><i class="fa fa-shopping-cart"></i>購入</a></td>
+                <td class="hidden-xs text-center"><strong>合計 ￥{{ $total }}</strong></td>
             </tr>
         </tfoot>
     </table>

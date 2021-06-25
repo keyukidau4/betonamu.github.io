@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="container products">
-        <h1>Hello</h1>
+        <h1>ベトナム店へようこそ</h1>
         <div class="row">
 
             @foreach ($products as $product)
@@ -15,16 +15,15 @@
                         <div class="caption">
                             <h4>{{ $product->name }}</h4>
                             <p>{{ str_limit(strtolower($product->description), 70) }}</p>
-                            <p><strong>Price: </strong> {{ $product->price }}￥</p>
+                            <p><strong>価格: </strong> {{ $product->price }}￥</p>
                             <p class="btn-holder"><a href="{{ url('add-to-cart/' . $product->id) }}"
-                                    class="btn btn-success btn-block text-center" role="button">Add to cart</a> </p>
+                                    class="btn btn-success btn-block text-center" role="button">カートに入れ</a> </p>
                         </div>
                     </div>
                 </div>
             @endforeach
 
         </div><!-- End row -->
-        {{-- <div class="pagination-bar text-center">{{ $products->links() }}</div> --}}
     </div>
     <div id="wrapper">
         <div class="center">

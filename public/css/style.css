@@ -154,6 +154,7 @@ h1 {
   animation: text-flicker 4s linear infinite;
 }
 
+
 @keyframes text-flicker {
   0% {
     opacity: 0.1;

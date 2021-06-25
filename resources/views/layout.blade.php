@@ -32,7 +32,7 @@
                 <div class="dropdown" >
                     
                     <button type="button" class="btn btn-info" data-toggle="dropdown">
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> カート <span
                             class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
                     </button>
                     <div class="dropdown-menu">
@@ -48,7 +48,7 @@
                             @endforeach
 
                             <div class="col-lg-6 col-sm-6 col-6 total-section text-right">
-                                <p>Total: <span class="text-info">$ {{ $total }}</span></p>
+                                <p>合計金額: <span class="text-info">$ {{ $total }}</span></p>
                             </div>
                         </div>
 
@@ -61,14 +61,14 @@
                                     <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
                                         <p>{{ $details['name'] }}</p>
                                         <span class="price text-info"> ${{ $details['price'] }}</span> <span
-                                            class="count"> Quantity:{{ $details['quantity'] }}</span>
+                                            class="count"> 数量:{{ $details['quantity'] }}</span>
                                     </div>
                                 </div>
                             @endforeach
                         @endif
                         <div class="row">
                             <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
-                                <a href="{{ url('cart') }}" class="btn btn-primary btn-block">View all</a>
+                                <a href="{{ url('cart') }}" class="btn btn-primary btn-block">すべて表示</a>
                             </div>
                         </div>
                     </div>
