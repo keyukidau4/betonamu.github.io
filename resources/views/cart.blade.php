@@ -5,6 +5,12 @@
 @section('content')
 
     <table id="cart" class="table table-hover table-condensed">
+        @if (session('success'))
+            <font color="green">
+                <h3><p>{{ session('success') }}</p></h3>
+            </font>
+
+        @endif
         <thead>
             <tr>
                 <th style="width:50%">Product</th>
@@ -56,7 +62,7 @@
             <tr>
                 <td><a href="{{ url('/') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> ショッピング継続</a></td>
                 <td colspan="2" class="hidden-xs"></td>
-                <td class='row'><a href="{{ url('/access') }}" ><i class="fa fa-shopping-cart"></i>購入</a></td>
+                <td class='row'><a href="{{ url('/access') }}"><i class="fa fa-shopping-cart"></i>購入</a></td>
                 <td class="hidden-xs text-center"><strong>合計 ￥{{ $total }}</strong></td>
             </tr>
         </tfoot>
@@ -67,39 +73,44 @@
 
 
     <script type="text/javascript">
-
-        $(".update-cart").click(function (e) {
-           e.preventDefault();
-
-           var ele = $(this);
-
-            $.ajax({
-               url: '{{ url('update-cart') }}',
-               method: "patch",
-               data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: ele.parents("tr").find(".quantity").val()},
-               success: function (response) {
-                   window.location.reload();
-               }
-            });
-        });
-
-        $(".remove-from-cart").click(function (e) {
+        $(".update-cart").click(function(e) {
             e.preventDefault();
 
             var ele = $(this);
 
-            if(confirm("Are you sure")) {
+            $.ajax({
+                url: '{{ url('update-cart') }}',
+                method: "patch",
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    id: ele.attr("data-id"),
+                    quantity: ele.parents("tr").find(".quantity").val()
+                },
+                success: function(response) {
+                    window.location.reload();
+                }
+            });
+        });
+
+        $(".remove-from-cart").click(function(e) {
+            e.preventDefault();
+
+            var ele = $(this);
+
+            if (confirm("Are you sure")) {
                 $.ajax({
                     url: '{{ url('remove-from-cart') }}',
                     method: "DELETE",
-                    data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id")},
-                    success: function (response) {
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        id: ele.attr("data-id")
+                    },
+                    success: function(response) {
                         window.location.reload();
                     }
                 });
             }
         });
-
     </script>
 
 @endsection

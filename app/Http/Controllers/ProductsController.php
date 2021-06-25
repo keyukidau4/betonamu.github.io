@@ -49,7 +49,7 @@ class ProductsController extends Controller
 
             session()->put('cart', $cart);
 
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
+            return redirect()->back()->with('success', 'アイテムがカートに正常に追加されました。');
         }
 
         // カートが空でない場合は、この製品が存在するかどうかを確認してから、数量を増やします
@@ -59,7 +59,7 @@ class ProductsController extends Controller
 
             session()->put('cart', $cart);
 
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
+            return redirect()->back()->with('success', 'アイテムがカートに正常に追加されました。');
         }
 
         // アイテムがカートに存在しない場合は、数量= 1でカートに追加します
@@ -72,7 +72,7 @@ class ProductsController extends Controller
 
         session()->put('cart', $cart);
 
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        return redirect()->back()->with('success', 'アイテムがカートに正常に追加されました。');
     }
 
     public function update(Request $request)
@@ -84,7 +84,7 @@ class ProductsController extends Controller
 
             session()->put('cart', $cart);
 
-            session()->flash('success', 'Cart updated successfully');
+            session()->flash('success', 'カートが正常に更新されました');
         }
     }
 
@@ -101,7 +101,7 @@ class ProductsController extends Controller
                 session()->put('cart', $cart);
             }
 
-            session()->flash('success', 'Product removed successfully');
+            session()->flash('success', '製品が正常に削除されました');
         }
     }
 }

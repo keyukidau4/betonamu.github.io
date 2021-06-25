@@ -6,6 +6,12 @@
 
     <div class="container products">
         <h1>ベトナム店へようこそ</h1>
+        @if (session('success'))
+            <font color="blue">
+                <h3><p>{{ session('success') }}</p></h3>
+            </font>
+
+        @endif
         <div class="row">
 
             @foreach ($products as $product)
